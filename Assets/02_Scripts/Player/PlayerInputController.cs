@@ -16,6 +16,4 @@ public class PlayerInputController : PlayerController
 
         CallMoveEvent(moveInput);
     }
-
-
 }

@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     public virtual void Awake()
     {
-        OnMoveEvent += CallMoveEvent;
+        
     }
 
     public void CallMoveEvent(Vector2 dir)
@@ -18,4 +17,8 @@ public class PlayerController : MonoBehaviour
         OnMoveEvent?.Invoke(dir);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+    }
 }
