@@ -131,7 +131,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,7 +152,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,6 +160,48 @@ TextureImporter:
       bones: []
       spriteID: 505217d58eb5f5c4a900c6e8b22fa2a2
       internalID: -431519896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Terrain (16x16)_2
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 64
+        width: 16
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dc167ab07bd5724fb6a11179a868910
+      internalID: 1051797655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Terrain (16x16)_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 160
+        width: 48
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7070817dbae2a74582d5fe8237924e7
+      internalID: 1574174881
       vertices: []
       indices: 
       edges: []
@@ -177,6 +219,8 @@ TextureImporter:
     nameFileIdTable:
       Terrain (16x16)_0: -1916337743
       Terrain (16x16)_1: -431519896
+      Terrain (16x16)_2: 1051797655
+      Terrain (16x16)_3: 1574174881
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
