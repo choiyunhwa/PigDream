@@ -17,8 +17,8 @@ public class PlayerController : MonoBehaviour
         OnMoveEvent?.Invoke(dir);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        //面倒 贸府 内靛 眠啊
     }
 }

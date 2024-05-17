@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rigid;
 
     private Vector3 movementDirection = Vector3.zero;
+    private float speed = 5f; //PlayerSO 가져오면 바꿔야함
 
     private void Awake()
     {
@@ -30,9 +31,14 @@ public class Movement : MonoBehaviour
         movementDirection = direction;
     }
 
+    private void GetPlayerSpeed(PlayerSO player)
+    {
+        speed = player.speed;
+    }
+
     private void ApplyMovement(Vector2 direction)
     {
-        direction = direction * 5;
+        direction = direction * speed;
         rigid.velocity = direction;
     }
 }
