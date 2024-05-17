@@ -6,6 +6,7 @@ public class RetryButton : MonoBehaviour
 {
     public GameObject HtpPanel;
     public GameObject EndPanel;
+    [SerializeField] private PlayerSO player; //변경해야함
 
     public void End()
     {
@@ -15,6 +16,6 @@ public class RetryButton : MonoBehaviour
     public void Retry()
     {
         SceneManager.LoadScene("GamePlayScene");
-
+        
     }
 }
