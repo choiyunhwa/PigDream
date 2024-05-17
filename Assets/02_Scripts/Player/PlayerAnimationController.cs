@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
 public class PlayerAnimationController : MonoBehaviour
 {
     private readonly int isWalking = Animator.StringToHash("isWalk");
+    private readonly int isDie = Animator.StringToHash("isDead");
 
     private PlayerController controller;
     private Animator animator;
@@ -24,6 +26,7 @@ public class PlayerAnimationController : MonoBehaviour
     private void Start()
     {
         controller.OnMoveEvent += Move;
+        controller.OnDieEvent += Dead;
     }
 
     private void Move(Vector2 vector)
@@ -33,4 +36,8 @@ public class PlayerAnimationController : MonoBehaviour
         spriteRenderer.flipX = vector.x < 0;
     }
 
+    private void Dead()
+    {
+        animator.SetTrigger(isDie);
+    }
 }
