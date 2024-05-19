@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuButton : MonoBehaviour
+public class PauseButton : MonoBehaviour
 {
     [SerializeField] private GameObject PausePannel;
 
-    public void GotoGameStart()
+    public void PausePannelOn()
     {
         SoundManager.instance.PlayClickSound();
-        SystemManager.instance.LoadGameStartScene();
-        PausePannel.SetActive(false);
+        Time.timeScale = 0.0f;
+        PausePannel.SetActive(true);
     }
 }

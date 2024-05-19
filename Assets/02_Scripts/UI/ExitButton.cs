@@ -11,4 +11,11 @@ public class ExitButton : MonoBehaviour
         SoundManager.instance.PlayClickSound();
         CurrentPannel.SetActive(false);
     }
+
+    public void PausePannelClose()
+    {
+        SoundManager.instance.PlayClickSound();
+        Time.timeScale = 1.0f;
+        CurrentPannel.SetActive(false);
+    }
 }
