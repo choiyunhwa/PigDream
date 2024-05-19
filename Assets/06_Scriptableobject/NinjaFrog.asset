@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdee267126a642d4daa6151b1c816c6b, type: 3}
-  m_Name: PlayerData
+  m_Name: NinjaFrog
   m_EditorClassIdentifier: 
-  playerSprite: {fileID: 0}
-  playerObj: {fileID: 0}
-  speed: 0
+  playerSprite: {fileID: 909566339, guid: 9642310b93675b64e97cc32d07d737a0, type: 3}
+  playerObj: {fileID: 3916799934169719669, guid: 9c29455f2608aa44489d149b418ad6ea, type: 3}
+  speed: 4
