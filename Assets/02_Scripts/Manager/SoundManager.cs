@@ -13,6 +13,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip backgroundMusicClip;
     public AudioClip gameoverMusicClip;
     public AudioClip clickSound;
+    public AudioClip itemSound;
+    public AudioClip hitSound;
 
     private void Awake() //함수 가장빠른 실행 
     {
@@ -43,10 +45,27 @@ public class SoundManager : MonoBehaviour
             soundEffectSource.Play();
         }
     }
+    public void PlayItemSound()
+    {
+        if (clickSound != null)
+        {
+            soundEffectSource.clip = itemSound;
+            soundEffectSource.Play();
+        }
+    }
+    public void PlayHitSound()
+    {
+        if (clickSound != null)
+        {
+            soundEffectSource.clip = hitSound;
+            soundEffectSource.Play();
+        }
+    }
     public void GameOver() 
     {
         if (gameoverMusicClip != null)
         {
+            PlayHitSound();
             soundEffectSource.clip = gameoverMusicClip;
             StopMusicPlay();
             soundEffectSource.Play();

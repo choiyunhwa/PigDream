@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
 
     public void ScoreEarn(int scorePoint)
     {
+        SoundManager soundManager = FindObjectOfType<SoundManager>();
+        soundManager.PlayItemSound();
         currentScore += scorePoint;
         scoreTxt.text = currentScore.ToString();
     }

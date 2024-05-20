@@ -1638,7 +1638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3392512989670928747
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2425,8 +2425,10 @@ MonoBehaviour:
   backgroundMusicSource: {fileID: 5229959067133712120}
   soundEffectSource: {fileID: 6887626394081871536}
   backgroundMusicClip: {fileID: 8300000, guid: 67bd5afa454f5dd479a6383420ef7e68, type: 3}
-  gameoverMusicClip: {fileID: 0}
+  gameoverMusicClip: {fileID: 8300000, guid: 9b8ba8b50e90ad64fa1358900072d142, type: 3}
   clickSound: {fileID: 8300000, guid: dd935b60070f62649b902678086d4a8d, type: 3}
+  itemSound: {fileID: 8300000, guid: b4c4f318361b0d64fa20cdfd6d37a41d, type: 3}
+  hitSound: {fileID: 8300000, guid: f9acf21931cb24c4d9451f4a73edddd9, type: 3}
 --- !u!82 &5229959067133712120
 AudioSource:
   m_ObjectHideFlags: 0

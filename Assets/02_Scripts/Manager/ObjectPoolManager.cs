@@ -31,7 +31,7 @@ public class ObjectPoolManager : MonoBehaviour
 
             for (int i = 0; i < maxPoolSize; i++)
             {
-                var ps = pool.Get(); //Ç®¿¡¼­ ÀÎ½ºÅÏ½º¸¦ °¡Á®¿È. ºñ¾îÀÖÀ¸¸é »õ ÀÎ½ºÅÏ½º »ý¼º
+                var ps = pool.Get(); //Ç®ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 //pool.Release(ps);   
             }
         }
