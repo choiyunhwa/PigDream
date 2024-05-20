@@ -41,10 +41,12 @@ public class SystemManager : MonoBehaviour
     {
         SceneManager.LoadScene("GamePlayScene");
         CallGamePlay();
+        Time.timeScale = 1.0f;
     }
     public void LoadGameStartScene()
     {
         SceneManager.LoadScene("GameStartScene");
         CallGameStart();
+        Time.timeScale = 1.0f;
     }
 }
