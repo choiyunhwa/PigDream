@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class MenuButton : MonoBehaviour
 {
-    [SerializeField] private GameObject PausePannel;
+    [SerializeField] private GameObject GameEndPannel;
 
     public void GotoGameStart()
     {
         SoundManager.instance.PlayClickSound();
         SystemManager.instance.LoadGameStartScene();
-        PausePannel.SetActive(false);
+        GameEndPannel.SetActive(false);
     }
 }

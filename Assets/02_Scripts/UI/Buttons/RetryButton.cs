@@ -4,12 +4,12 @@ using UnityEngine.UIElements;
 
 public class RetryButton : MonoBehaviour
 {
-    [SerializeField] private GameObject PausePannel;
+    [SerializeField] private GameObject GameEndPannel;
 
     public void Retry()
     {
         SoundManager.instance.PlayClickSound();
-        PausePannel.SetActive(false);
+        GameEndPannel.SetActive(false);
         SystemManager.instance.LoadGamePlayScene();
     }
 }
