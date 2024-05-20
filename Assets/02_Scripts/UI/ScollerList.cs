@@ -10,7 +10,8 @@ public class ScollerList : MonoBehaviour
 
     [Header("Character Infor")]
     public Image choiceImg;
-    public TMP_Text text;
+    public TMP_Text choiceName;
+    public TMP_Text choiceSpeed;
 
     [Header("ListView")]
     public GameObject content;
@@ -27,7 +28,7 @@ public class ScollerList : MonoBehaviour
             GameObject obj = new GameObject("choice");
             RectTransform rect = obj.AddComponent<RectTransform>();
             obj.transform.SetParent(content.transform, false);
-            rect.sizeDelta = new Vector2(300, 300);
+            rect.sizeDelta = new Vector2(200, 200);
             Image image = obj.AddComponent<Image>();
             image.sprite = player.playerSprite;
         }
@@ -69,14 +70,9 @@ public class ScollerList : MonoBehaviour
             content.transform.GetChild(i).localScale = new Vector2(scale, scale);
 
             choiceImg.sprite = playerInfor[i].playerSprite;
-
-            
+            choiceName.text = playerInfor[i].playerName;
+            choiceSpeed.text = playerInfor[i].speed.ToString();            
         }        
     }
-    public void CallPlayerEvent(PlayerSO player)
-    {
-        //GameManager.Instance.playerEvent?.Invoke(player);
-    }
-
 }
 
