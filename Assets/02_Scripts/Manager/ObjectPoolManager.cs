@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -20,11 +19,11 @@ public class ObjectPoolManager : MonoBehaviour
 
     private void InitPoolSetting()
     {
-        poolDic  = new Dictionary<string, IObjectPool<GameObject>>();
+        poolDic = new Dictionary<string, IObjectPool<GameObject>>();
 
-        foreach(var prefab in prefabs)
+        foreach (var prefab in prefabs)
         {
-            IObjectPool<GameObject> pool = new ObjectPool<GameObject>(()=>CreatePooledItem(prefab), OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, collectionChecks, 10, maxPoolSize);
+            IObjectPool<GameObject> pool = new ObjectPool<GameObject>(() => CreatePooledItem(prefab), OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, collectionChecks, 10, maxPoolSize);
 
             poolDic[prefab.name] = pool;
 
@@ -35,7 +34,7 @@ public class ObjectPoolManager : MonoBehaviour
                 //pool.Release(ps);   
             }
         }
-        
+
     }
 
     private GameObject CreatePooledItem(GameObject prefab)
@@ -43,16 +42,16 @@ public class ObjectPoolManager : MonoBehaviour
         GameObject poolGo = Instantiate(prefab);
         return poolGo;
     }
-    
+
     /// <summary>
     /// 
     /// </summary>
     /// <param name="pool"></param>
-    private void OnReturnedToPool(GameObject pool) 
+    private void OnReturnedToPool(GameObject pool)
     {
         pool.SetActive(false);
     }
-     
+
     private void OnTakeFromPool(GameObject pool)
     {
         pool.SetActive(true);
