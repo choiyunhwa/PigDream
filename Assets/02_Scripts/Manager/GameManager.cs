@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currentScoreTxt;
     [SerializeField] private TextMeshProUGUI bestScoreTxt;
 
-
+    public string chracterName;
 
     private int currentScore;
 
@@ -52,4 +52,15 @@ public class GameManager : MonoBehaviour
     {
         currentScoreTxt.text = currentScore.ToString();
     }
+
+    public void CharacterSetting(string character)
+    {
+        chracterName = character;
+    }
+
+    public string CharacterInfor()
+    {
+        return chracterName;    
+    }
+
 }

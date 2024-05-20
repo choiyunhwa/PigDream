@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerSO : ScriptableObject
 {
     public Sprite playerSprite;
+    public string playerName;
     public GameObject playerObj;
     public float speed;
 }
