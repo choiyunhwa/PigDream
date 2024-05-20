@@ -25,6 +25,7 @@ public class PlayerAnimationController : MonoBehaviour
 
     private void Start()
     {
+
         controller.OnMoveEvent += Move;
         controller.OnDieEvent += Dead;
     }

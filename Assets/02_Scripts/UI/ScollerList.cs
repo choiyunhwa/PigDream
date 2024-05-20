@@ -34,11 +34,6 @@ public class ScollerList : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        
-    }
-
     private void Update()
     {
         pos = new float[content.transform.childCount];
@@ -69,9 +64,13 @@ public class ScollerList : MonoBehaviour
             float scale = Mathf.Lerp(0.8f, 1f, Mathf.Clamp01(1f - Mathf.Abs(scrollPos - pos[i]) / (distance / 2)));
             content.transform.GetChild(i).localScale = new Vector2(scale, scale);
 
+
+            //playerSO = playerInfor[i];
             choiceImg.sprite = playerInfor[i].playerSprite;
             choiceName.text = playerInfor[i].playerName;
-            choiceSpeed.text = playerInfor[i].speed.ToString();            
+            choiceSpeed.text = playerInfor[i].speed.ToString();
+
+            GameManager.instance.CharacterSetting(playerInfor[i].name);
         }        
     }
 }

@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public event Action CharacterSettingEvent;
     public event Action<Vector2> OnMoveEvent;
     public event Action OnDieEvent;
 
     public virtual void Awake()
     {
+        SystemManager.instance.OnGamePlay += CallSettingEvet;
            
     }
 
@@ -21,5 +23,10 @@ public class PlayerController : MonoBehaviour
     private void CallDieEvent()
     {
         OnDieEvent?.Invoke();
+    }
+
+    private void CallSettingEvet()
+    {
+        CharacterSettingEvent?.Invoke();
     }
 }
