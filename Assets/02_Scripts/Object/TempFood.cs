@@ -34,8 +34,8 @@ public class TempFood : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.down * 0.05f;
-        if(transform.position.y < -3.6f)
+        transform.position += Vector3.down * Time.deltaTime * 2;
+        if (transform.position.y < -3.6f)
         {
             TempGameManager.Instance.GameOver();
         }
