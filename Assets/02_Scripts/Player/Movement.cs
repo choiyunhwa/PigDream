@@ -11,6 +11,10 @@ public class Movement : MonoBehaviour
     private Vector3 movementDirection = Vector3.zero;
     private float speed;
 
+    // 파워업 관련
+    private int speedUPDuration = 0;
+    private float speedUP = 1.0f;
+
     private void Awake()
     {
         controller = GetComponent<PlayerController>();
@@ -40,7 +44,25 @@ public class Movement : MonoBehaviour
 
     private void ApplyMovement(Vector2 direction)
     {
-        direction = direction * speed;
+        direction = direction * speed * speedUP;
         rigid.velocity = direction;
+    }
+
+    public void StartSpeedUP()
+    {
+        if (speedUPDuration <= 0) { StartCoroutine(SpeedUP()); }
+        else { speedUPDuration += 10; }
+    }
+
+    IEnumerator SpeedUP()
+    {
+        speedUPDuration += 10;
+        speedUP = 2f;
+        while (speedUPDuration > 0)
+        {
+            yield return new WaitForSeconds(1f);
+            speedUPDuration -= 1;
+        }
+        speedUP = 1f;
     }
 }

@@ -15,7 +15,7 @@ public class Food : MonoBehaviour
     }
     void Update()
     {
-        transform.position += Vector3.down * Time.deltaTime * 2; // 속도 스케일링
+        transform.position += Vector3.down * Time.deltaTime * 2 * SpawnManager.instance.speedScaling; // 속도 스케일링
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

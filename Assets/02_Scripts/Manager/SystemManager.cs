@@ -32,6 +32,7 @@ public class SystemManager : MonoBehaviour
     public void CallGameOver()
     {
         OnGameOver?.Invoke();
+        Time.timeScale = 0f;
     }
     private void CallGameStart()
     {
