@@ -32,6 +32,7 @@ public class SystemManager : MonoBehaviour
     public void CallGameOver()
     {
         OnGameOver?.Invoke();
+        Time.timeScale = 0f;
     }
     private void CallGameStart()
     {
@@ -41,10 +42,12 @@ public class SystemManager : MonoBehaviour
     {
         SceneManager.LoadScene("GamePlayScene");
         CallGamePlay();
+        Time.timeScale = 1.0f;
     }
     public void LoadGameStartScene()
     {
         SceneManager.LoadScene("GameStartScene");
         CallGameStart();
+        Time.timeScale = 1.0f;
     }
 }

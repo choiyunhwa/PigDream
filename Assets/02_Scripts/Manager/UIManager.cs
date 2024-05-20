@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject GameStartButtons;
     [SerializeField] private GameObject GamePlayButtons;
+    [SerializeField] private GameObject GameEndPannel;
 
     void Start()
     {
@@ -16,6 +17,8 @@ public class UIManager : MonoBehaviour
 
         SystemManager.instance.OnGameStart += GameStartButtonsActive;
         SystemManager.instance.OnGameStart += GamePlayButtonsDisActive;
+
+        SystemManager.instance.OnGameOver += GameEndPannelAvtive;
     }
 
     private void GamePlayButtonsActive()
@@ -35,5 +38,10 @@ public class UIManager : MonoBehaviour
     private void GameStartButtonsDisActive()
     {
         GameStartButtons.SetActive(false);
+    }
+
+    private void GameEndPannelAvtive()
+    {
+        GameEndPannel.SetActive(true);
     }
 }

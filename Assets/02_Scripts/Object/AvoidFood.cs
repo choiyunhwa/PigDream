@@ -13,12 +13,12 @@ public class AvoidFood : MonoBehaviour
     }
     void Update()
     {
-        transform.position += Vector3.down * Time.deltaTime * 2; // 속도 스케일링
+        transform.position += Vector3.down * Time.deltaTime * 2 * SpawnManager.instance.speedScaling; // 속도 스케일링
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (IsLayerMatched(playerCollisionLayer.value, other.gameObject.layer))
-        { Debug.Log("게임 오버!"); }
+        { SystemManager.instance.CallGameOver(); }
         gameObject.SetActive(false);
     }
     private bool IsLayerMatched(int layerMask, int objectLayer)
