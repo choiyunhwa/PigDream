@@ -14,8 +14,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currentScoreTxt;
     [SerializeField] private TextMeshProUGUI bestScoreTxt;
 
-    public string chracterName;
+    private PlayerSO[] playerInfors;
 
+    private PlayerSO SelectchracterName;
     private int currentScore;
 
     void Awake()
@@ -34,6 +35,8 @@ public class GameManager : MonoBehaviour
     {
         SystemManager.instance.OnGamePlay += ScoreClear;
         SystemManager.instance.OnGameOver += GameEnd;
+
+        playerInfors = Resources.LoadAll<PlayerSO>("Player");
     }
 
     public void ScoreEarn(int scorePoint)
@@ -53,14 +56,19 @@ public class GameManager : MonoBehaviour
         currentScoreTxt.text = currentScore.ToString();
     }
 
-    public void CharacterSetting(string character)
+    public void CharacterSetting(PlayerSO character)
     {
-        chracterName = character;
+        SelectchracterName = character;
     }
 
-    public string CharacterInfor()
+    public PlayerSO CharacterInfor()
     {
-        return chracterName;    
+        return SelectchracterName;    
+    }
+
+    public PlayerSO[] AllCharacterInfor()
+    {
+        return playerInfors;
     }
 
 }

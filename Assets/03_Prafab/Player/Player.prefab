@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4697388004850246013}
   - component: {fileID: 7972288533437098644}
   - component: {fileID: 6939689838926279198}
+  - component: {fileID: 4605402842893457464}
   - component: {fileID: 58595792744055444}
   - component: {fileID: 3915231638582391032}
   - component: {fileID: 8514026673220032852}
@@ -110,6 +111,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4605402842893457464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624151495434553988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad3d5cf29c9033498a0039bf9e94d8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &58595792744055444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,9 +200,8 @@ GameObject:
   - component: {fileID: 1820713330796068456}
   - component: {fileID: 2239689621944013475}
   - component: {fileID: 8767926393030067834}
-  - component: {fileID: 8451602582945091568}
   m_Layer: 0
-  m_Name: NinjaFrogSprite
+  m_Name: MainSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -283,16 +295,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8451602582945091568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6408084652606857763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad3d5cf29c9033498a0039bf9e94d8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}

@@ -19,10 +19,13 @@ public class ScollerList : MonoBehaviour
     private float scrollPos = 0;
     private float[] pos;
 
-    public List<PlayerSO> playerInfor;
+    private PlayerSO[] playerInfor;
+    private int currentIndex = -1;
 
     private void Awake()
     {
+        playerInfor = GameManager.instance.AllCharacterInfor();
+
         foreach (var player in playerInfor)
         {
             GameObject obj = new GameObject("choice");
@@ -59,19 +62,34 @@ public class ScollerList : MonoBehaviour
             }
         }
 
+        int newIndes = -2;
+
         for (int i = 0; i < pos.Length; i++)
         {
             float scale = Mathf.Lerp(0.8f, 1f, Mathf.Clamp01(1f - Mathf.Abs(scrollPos - pos[i]) / (distance / 2)));
             content.transform.GetChild(i).localScale = new Vector2(scale, scale);
 
+            if (Mathf.Approximately(scale,1f))
+            {
+                newIndes = i;                
+            }
+            
+        }   
+        
+        if(currentIndex != newIndes)
+        {
+            currentIndex = newIndes;
 
-            //playerSO = playerInfor[i];
-            choiceImg.sprite = playerInfor[i].playerSprite;
-            choiceName.text = playerInfor[i].playerName;
-            choiceSpeed.text = playerInfor[i].speed.ToString();
+            if (currentIndex >= 0 && currentIndex < playerInfor.Length) 
+            { 
+                choiceImg.sprite = playerInfor[currentIndex].playerSprite;
+                choiceName.text = playerInfor[currentIndex].playerName;
+                choiceSpeed.text = playerInfor[currentIndex].speed.ToString();
 
-            GameManager.instance.CharacterSetting(playerInfor[i].name);
-        }        
+                GameManager.instance.CharacterSetting(playerInfor[currentIndex]);
+            
+            }
+        }
     }
 }
 
