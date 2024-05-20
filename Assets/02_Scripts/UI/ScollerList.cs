@@ -69,9 +69,14 @@ public class ScollerList : MonoBehaviour
             content.transform.GetChild(i).localScale = new Vector2(scale, scale);
 
             choiceImg.sprite = playerInfor[i].playerSprite;
-        }
 
-        
+            
+        }        
     }
+    public void CallPlayerEvent(PlayerSO player)
+    {
+        //GameManager.Instance.playerEvent?.Invoke(player);
+    }
+
 }
 

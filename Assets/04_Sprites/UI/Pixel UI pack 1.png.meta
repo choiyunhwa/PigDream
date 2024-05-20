@@ -572,7 +572,7 @@ TextureImporter:
         width: 16
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -580,6 +580,69 @@ TextureImporter:
       bones: []
       spriteID: 04872ee01b3ffed48b32306c3a7c2c0f
       internalID: -1062098334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel UI pack 1_22
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 129
+        width: 62
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 468c74bf8a964b549b84df25a35d58f4
+      internalID: 421211659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel UI pack 1_23
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 129
+        width: 62
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9aea21c5477e4b4f8d97f8b4972425a
+      internalID: -2132036855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel UI pack 1_24
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 129
+        width: 62
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da8867f68f7426f4f9cf387feb9c4a54
+      internalID: -1837111612
       vertices: []
       indices: 
       edges: []
@@ -610,6 +673,9 @@ TextureImporter:
       Pixel UI pack 1_2: -1185959923
       Pixel UI pack 1_20: 1358578817
       Pixel UI pack 1_21: -1062098334
+      Pixel UI pack 1_22: 421211659
+      Pixel UI pack 1_23: -2132036855
+      Pixel UI pack 1_24: -1837111612
       Pixel UI pack 1_3: 1406964720
       Pixel UI pack 1_4: -1879022267
       Pixel UI pack 1_5: 1449099939
