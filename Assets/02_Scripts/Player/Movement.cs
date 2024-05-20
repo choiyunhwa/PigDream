@@ -9,12 +9,14 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rigid;
 
     private Vector3 movementDirection = Vector3.zero;
-    private float speed = 5f; //PlayerSO 가져오면 바꿔야함
+    private float speed;
 
     private void Awake()
     {
         controller = GetComponent<PlayerController>();
         rigid = GetComponent<Rigidbody2D>();
+
+        controller.CharacterSettingEvent += GetPlayerSpeed;
     }
 
     private void FixedUpdate()
