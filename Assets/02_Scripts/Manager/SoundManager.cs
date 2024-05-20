@@ -8,7 +8,6 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance;
 
     public AudioSource backgroundMusicSource;
-    public AudioSource gameoverMusicSource;
     public AudioSource soundEffectSource;
 
     public AudioClip backgroundMusicClip;
@@ -21,7 +20,7 @@ public class SoundManager : MonoBehaviour
         if (instance == null) //만약 인스턴스가 비어있다면 
         {
             instance = this; //인스턴스를 이것으로(class오디오매니저) 
-            DontDestroyOnLoad(gameObject); //씬이 넘어가도 오브젝트 파괴를 못함 
+            // SceneManager 밑에 넣어서 LoadScene 파괴 방지
         }
         else //그외의 경우 (이미 인스턴스에 있어 재생중일 경우) 
         {
@@ -30,12 +29,10 @@ public class SoundManager : MonoBehaviour
     }
     void Start()
     {
-        backgroundMusicSource = GetComponent<AudioSource>();
         backgroundMusicSource.clip = this.backgroundMusicClip;
         backgroundMusicSource.Play();
 
         // soundEffectSource 초기화
-        soundEffectSource = gameObject.AddComponent<AudioSource>();
     }
     // 클릭 효과음 재생 메서드 
     public void PlayClickSound() // 함수 “PlayClickSound” 
@@ -46,7 +43,7 @@ public class SoundManager : MonoBehaviour
             soundEffectSource.Play();
         }
     }
-    public void GameOver() // 함수 “PlayClickSound” 
+    public void GameOver() 
     {
         if (gameoverMusicClip != null)
         {

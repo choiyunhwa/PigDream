@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Scoller : MonoBehaviour
+public class Scroller : MonoBehaviour
 {
     private RawImage img;
     [SerializeField] private float x, y = 0.0f;
