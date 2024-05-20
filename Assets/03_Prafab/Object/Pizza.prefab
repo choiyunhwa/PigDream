@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 4076153951846735490}
   - component: {fileID: 3204058815754693858}
   - component: {fileID: 6009414432915319670}
-  - component: {fileID: 8264806839826444224}
+  - component: {fileID: -1022538831914871974}
+  - component: {fileID: -4178806329993284951}
   m_Layer: 0
   m_Name: Pizza
   m_TagString: Untagged
@@ -159,7 +160,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8264806839826444224
+--- !u!114 &-1022538831914871974
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,13 +169,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1663692880156595240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d2b2bc39056064498ed4f969e7522ee, type: 3}
+  m_Script: {fileID: 11500000, guid: b93e06d64966c6241ade3e99b2296415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Candy: {fileID: 0}
-  Popcorn: {fileID: 0}
-  Hamburger: {fileID: 0}
-  Pizza: {fileID: 0}
-  Dount: {fileID: 0}
-  Honey: {fileID: 0}
-  Cupcake: {fileID: 0}
+  maxPoolSize: 10
+  prefabs: []
+--- !u!114 &-4178806329993284951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663692880156595240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b454cc31450df6c4ab731f73b2b932d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

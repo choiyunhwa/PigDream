@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3858411266310989387}
   - component: {fileID: 7334872323130249465}
   - component: {fileID: 8557394303987334890}
+  - component: {fileID: -1537431287511707950}
   m_Layer: 0
   m_Name: Honey
   m_TagString: Untagged
@@ -171,3 +172,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b454cc31450df6c4ab731f73b2b932d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1537431287511707950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903929678080909596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93e06d64966c6241ade3e99b2296415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPoolSize: 10
+  prefabs: []

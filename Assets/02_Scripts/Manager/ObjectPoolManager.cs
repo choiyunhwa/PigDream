@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -63,4 +64,20 @@ public class ObjectPoolManager : MonoBehaviour
         Destroy(pool);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        foreach (var pool in poolDic.Values)
+        {
+            Transform collidedObject = collision.transform;
+            if (pool.Contains(collidedObject))
+            {
+                Transform pooledObject = pool.Get(collidedObject);
+                if (pooledObject != null)
+                {
+                    pooledObject.gameObject.SetActive(true);
+                    break;
+                }
+            }
+        }
+    }
 }

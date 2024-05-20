@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7449241065934287194}
   - component: {fileID: 1567847470429540025}
   - component: {fileID: 6905872739217532203}
+  - component: {fileID: -8231295447039952461}
   m_Layer: 0
   m_Name: Cupcake
   m_TagString: Untagged
@@ -171,3 +172,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b454cc31450df6c4ab731f73b2b932d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8231295447039952461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3905810471604665132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93e06d64966c6241ade3e99b2296415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPoolSize: 10
+  prefabs: []

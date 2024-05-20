@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3533104751024117044}
   - component: {fileID: 1918114865381419015}
   - component: {fileID: 4966664244285583180}
+  - component: {fileID: -4235617752163035708}
   m_Layer: 0
   m_Name: Popcorn
   m_TagString: Untagged
@@ -171,3 +172,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b454cc31450df6c4ab731f73b2b932d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4235617752163035708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3218010098595626448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93e06d64966c6241ade3e99b2296415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPoolSize: 10
+  prefabs: []
