@@ -1294,7 +1294,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   choiceImg: {fileID: 2628746679263653522}
-  text: {fileID: 8692659687650182606}
+  choiceName: {fileID: 8692659687650182606}
+  choiceSpeed: {fileID: 3878459313659006920}
   content: {fileID: 2882680008111222804}
   scrollbar: {fileID: 6139222678588180041}
   playerInfor:
