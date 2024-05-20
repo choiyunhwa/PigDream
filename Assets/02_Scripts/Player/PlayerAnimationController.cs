@@ -40,5 +40,5 @@ public class PlayerAnimationController : MonoBehaviour
     private void Dead()
     {
         animator.SetTrigger(isDie);
-    }
+    }    
 }
