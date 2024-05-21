@@ -35,14 +35,14 @@ public class SpawnManager : MonoBehaviour
 
     private void StartAllCoroutine()
     {
+        // 초기 세팅
+        speedScaling = 0;
+        currentDifficult = 0;
+
         StartCoroutine(SpawnFood());
         StartCoroutine(SpawnAvoidFood());
         StartCoroutine(SpawnPowerUPs());
         StartCoroutine(DifficultScaling());
-        
-        // 초기 세팅
-        speedScaling = 0;
-        currentDifficult = 0;
     }
 
     private void StopAllCoroutine()

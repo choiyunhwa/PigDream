@@ -37,6 +37,12 @@ public class ObjectPoolManager : MonoBehaviour
     void Start()
     {
         SystemManager.instance.OnGamePlay += DelaySpawn;
+        SystemManager.instance.OnGameOver += CleanObjectPool;
+    }
+
+    private void CleanObjectPool()
+    {
+        PoolDictionary.Clear();
     }
 
     private void DelaySpawn()
@@ -48,7 +54,7 @@ public class ObjectPoolManager : MonoBehaviour
 
     IEnumerator DelaySpawnCoroutine()
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return null;
         InitGameObjectPool();
     }
 
