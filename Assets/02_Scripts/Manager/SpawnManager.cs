@@ -69,8 +69,8 @@ public class SpawnManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(foodSpawnSpeed - (currentDifficult * DifficultCap));
-            ObjectPoolManager.instance.poolDic["Food"].Get();
-            //Instantiate(food);
+            //ObjectPoolManager.instance.poolDic["Food"].Get();
+            Instantiate(food);
         }
     }
     IEnumerator SpawnAvoidFood()
@@ -78,8 +78,8 @@ public class SpawnManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(AvoidfoodSpawnSpeed - (currentDifficult * DifficultCap) * 2); // 맨 뒤는 추가 캡을 넣어주도록
-            ObjectPoolManager.instance.poolDic["AvoidFood"].Get();
-            //Instantiate(avoidFood);
+            //ObjectPoolManager.instance.poolDic["AvoidFood"].Get();
+            Instantiate(avoidFood);
         }
     }
     IEnumerator SpawnPowerUPs()
@@ -87,8 +87,8 @@ public class SpawnManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(PowerUPSpawnSpeed - (currentDifficult * DifficultCap));
-            ObjectPoolManager.instance.poolDic["PowerUP"].Get();
-            //Instantiate(powerUP);
+            //ObjectPoolManager.instance.poolDic["PowerUP"].Get();
+            Instantiate(powerUP);
         }
     }
 }

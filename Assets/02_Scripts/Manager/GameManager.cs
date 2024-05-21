@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     private PlayerSO SelectchracterName;
     private int currentScore;
+    private int bestScore;
 
     void Awake()
     {
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
         SystemManager.instance.OnGameStart += GameMenu;
 
         playerInfors = Resources.LoadAll<PlayerSO>("Player");
+        
     }
 
     public void ScoreEarn(int scorePoint)
@@ -53,14 +55,34 @@ public class GameManager : MonoBehaviour
     {
         spawnManager.SetActive(true);
         currentScore = 0;
+        LoadBestScoreData();
         ScoreEarn(0);
+    }
+
+    private void LoadBestScoreData()
+    {
+        bestScore = DataManager.instance.GameData.bestscore;
+        bestScoreTxt.text = bestScore.ToString();
+    }
+
+    private int CheckBestScore()
+    {
+        if(currentScore > bestScore)
+        {
+            
+            return bestScore = currentScore;
+        }
+
+        return bestScore;
     }
 
     private void GameEnd()
     {
         currentScoreTxt.text = currentScore.ToString();
+        DataManager.instance.GameData.bestscore = CheckBestScore();
+        bestScoreTxt.text = CheckBestScore().ToString();
     }
-
+     
     private void GameMenu()
     {
         spawnManager.SetActive(false);
