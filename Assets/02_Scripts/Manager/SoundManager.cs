@@ -60,5 +60,12 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void SetSoundValue(float value)
+    {
+        backgroundMusicSource.volume = value;
+        soundEffectSource.volume = value;
+           
+    }
+
 }
 
