@@ -4,17 +4,34 @@ using UnityEngine.Pool;
 
 public class ObjectPoolManager : MonoBehaviour
 {
+    public static ObjectPoolManager instance;
+
     private bool collectionChecks = true;
 
     public int maxPoolSize = 10;
     public List<GameObject> prefabs;
 
     //public IObjectPool<GameObject> pool { get; private set; }
-    private Dictionary<string, IObjectPool<GameObject>> poolDic;
+    public Dictionary<string, IObjectPool<GameObject>> poolDic { get; set; }
 
     private void Awake()
-    {
+    {      
+        if (instance != null)
+            Destroy(gameObject);        
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
         InitPoolSetting();
+
+
+    }
+
+    private void Start()
+    {
+        //SystemManager.instance.OnGamePlay += InitPoolSetting;
     }
 
     private void InitPoolSetting()
@@ -31,7 +48,7 @@ public class ObjectPoolManager : MonoBehaviour
             for (int i = 0; i < maxPoolSize; i++)
             {
                 var ps = pool.Get(); //풀에서 인스턴스를 가져옴. 비어있으면 새 인스턴스 생성
-                //pool.Release(ps);   
+                pool.Release(ps);   
             }
         }
 
@@ -39,7 +56,7 @@ public class ObjectPoolManager : MonoBehaviour
 
     private GameObject CreatePooledItem(GameObject prefab)
     {
-        GameObject poolGo = Instantiate(prefab);
+        GameObject poolGo = Instantiate(prefab, this.transform);
         return poolGo;
     }
 

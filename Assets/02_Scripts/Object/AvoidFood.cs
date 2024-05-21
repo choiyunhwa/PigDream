@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class AvoidFood : MonoBehaviour
 {
+    public IObjectPool<GameObject> pool { get; set; }
+
     [SerializeField] private LayerMask playerCollisionLayer;
 
     private void Start()
@@ -18,11 +21,16 @@ public class AvoidFood : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (IsLayerMatched(playerCollisionLayer.value, other.gameObject.layer))
-        { SystemManager.instance.CallGameOver(); }
-        gameObject.SetActive(false);
+        { SystemManager.instance.CallGameOver(); }        
+        //gameObject.SetActive(false);
     }
     private bool IsLayerMatched(int layerMask, int objectLayer)
     {
         return layerMask == (layerMask | (1 << objectLayer));
+    }
+
+    public void ReleaseObject()
+    {
+        pool.Release(this.gameObject);
     }
 }
