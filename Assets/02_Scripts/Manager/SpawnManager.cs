@@ -10,10 +10,6 @@ public class SpawnManager : MonoBehaviour
     [Range(0, 10)] public float AvoidfoodSpawnSpeed = 6f;
     [Range(0, 10)] public float PowerUPSpawnSpeed = 10f;
 
-    [SerializeField] private GameObject food;
-    [SerializeField] private GameObject avoidFood;
-    [SerializeField] private GameObject powerUP;
-
     [SerializeField] private float MaxDifficult = 29f;
     [SerializeField] private float currentDifficult;
     [SerializeField] private float DifficultCap = 0.1f;
@@ -69,8 +65,7 @@ public class SpawnManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(foodSpawnSpeed - (currentDifficult * DifficultCap));
-            //ObjectPoolManager.instance.poolDic["Food"].Get();
-            Instantiate(food);
+            ObjectPoolManager.instance.SpawnFromPool("Food");
         }
     }
     IEnumerator SpawnAvoidFood()
@@ -78,8 +73,7 @@ public class SpawnManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(AvoidfoodSpawnSpeed - (currentDifficult * DifficultCap) * 2); // 맨 뒤는 추가 캡을 넣어주도록
-            //ObjectPoolManager.instance.poolDic["AvoidFood"].Get();
-            Instantiate(avoidFood);
+            ObjectPoolManager.instance.SpawnFromPool("AvoidFood");
         }
     }
     IEnumerator SpawnPowerUPs()
@@ -87,8 +81,7 @@ public class SpawnManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(PowerUPSpawnSpeed - (currentDifficult * DifficultCap));
-            //ObjectPoolManager.instance.poolDic["PowerUP"].Get();
-            Instantiate(powerUP);
+            ObjectPoolManager.instance.SpawnFromPool("PowerUp");
         }
     }
 }

@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
-    private void Start()
-    {
-        float x = Random.Range(-2.45f, 2.45f);
-        transform.position = new Vector2(x, 5.2f);
-    }
     void Update()
     {
         transform.position += Vector3.down * Time.deltaTime * 2.5f * SpawnManager.instance.speedScaling; // 속도 스케일링

@@ -8,11 +8,6 @@ public class Food : MonoBehaviour
 
     private int scorePoint = 100;   // 임시 점수 설정
 
-    private void Start()
-    {
-        float x = Random.Range(-2.45f, 2.45f);
-        transform.position = new Vector2(x, 5.2f);
-    }
     void Update()
     {
         transform.position += Vector3.down * Time.deltaTime * 2 * SpawnManager.instance.speedScaling; // 속도 스케일링

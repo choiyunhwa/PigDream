@@ -1,82 +1,186 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.Pool;
 
 public class ObjectPoolManager : MonoBehaviour
 {
     public static ObjectPoolManager instance;
 
-    private bool collectionChecks = true;
+    [System.Serializable]
+    public class Pool
+    {
+        public string tag;
+        public List<GameObject> prefabs;
+        public int size;
+    }
 
-    public int maxPoolSize = 10;
-    public List<GameObject> prefabs;
+    public List<Pool> Pools;
+    private Dictionary<string, List<GameObject>> PoolDictionary;
 
-    //public IObjectPool<GameObject> pool { get; private set; }
-    public Dictionary<string, IObjectPool<GameObject>> poolDic { get; set; }
+    public Vector2 powerUpSize = Vector2.one;
+    private int bigSizeDuration;
+    private int smallSizeDuration;
 
-    private void Awake()
-    {      
-        if (instance != null)
-            Destroy(gameObject);        
-        else
+    private int powerUpMaxCount;
+    private int powerUpCurrentCount;
+
+    void Awake()
+    {
+        if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+        }
+        else { Destroy(this.gameObject); }
+    }
+
+    void Start()
+    {
+        SystemManager.instance.OnGamePlay += DelaySpawn;
+    }
+
+    private void DelaySpawn()
+    {
+        StartCoroutine(DelaySpawnCoroutine());
+        bigSizeDuration = 0;
+        smallSizeDuration = 0;
+    }
+
+    IEnumerator DelaySpawnCoroutine()
+    {
+        yield return new WaitForSeconds(0.25f);
+        InitGameObjectPool();
+    }
+
+    public void InitGameObjectPool()
+    {
+        PoolDictionary = new Dictionary<string, List<GameObject>>();
+        foreach (var pool in Pools)
+        {
+            // GameObject ParentObject = new GameObject(pool.tag);
+            // Instantiate(ParentObject);
+            List<GameObject> objectPool = new List<GameObject>();
+            for (int i = 0; i < pool.size; i++)
+            {
+                GameObject obj = Instantiate(pool.prefabs[i % pool.prefabs.Count]);
+
+                obj.SetActive(false);
+
+                objectPool.Add(obj);
+            }
+            if (pool.tag == "PowerUp") { powerUpMaxCount = objectPool.Count; }
+            PoolDictionary.Add(pool.tag, objectPool);
+        }
+    }
+
+    public GameObject SpawnFromPool(string tag)
+    {
+        // 애초에 Pool이 존재하지 않는 경우
+        if (!PoolDictionary.ContainsKey(tag))
+            return null;
+
+        //
+        List<GameObject> objectPool = PoolDictionary[tag];
+        if (objectPool.Count == 0)
+        {
+            PoolSizeExpand(tag, objectPool);
         }
 
-        InitPoolSetting();
+        int i = objectPool.Count - 1;
+        GameObject obj = objectPool[i];
+        objectPool.RemoveAt(i);
+        objectPool.Insert(0, obj);
 
-
-    }
-
-    private void Start()
-    {
-        //SystemManager.instance.OnGamePlay += InitPoolSetting;
-    }
-
-    private void InitPoolSetting()
-    {
-        poolDic = new Dictionary<string, IObjectPool<GameObject>>();
-
-        foreach (var prefab in prefabs)
+        if (obj.activeSelf)
         {
-            IObjectPool<GameObject> pool = new ObjectPool<GameObject>(() => CreatePooledItem(prefab), OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, collectionChecks, 10, maxPoolSize);
+            PoolSizeExpand(tag, objectPool);
+            i = objectPool.Count - 1;
+            obj = objectPool[i];
+            objectPool.RemoveAt(i);
+            objectPool.Insert(0, obj);
+        }
 
-            poolDic[prefab.name] = pool;
+        // 위치 이동
+        float x = Random.Range(-2.45f, 2.45f);
+        obj.transform.position = new Vector2(x, 5.2f);
 
 
-            for (int i = 0; i < maxPoolSize; i++)
+        // 파워업 적용 (파워업들은 제외)
+        if (tag != "PowerUp") { obj.transform.localScale = powerUpSize; }
+        else
+        {
+            if (powerUpCurrentCount == powerUpMaxCount)
             {
-                var ps = pool.Get(); //풀에서 인스턴스를 가져옴. 비어있으면 새 인스턴스 생성
-                pool.Release(ps);   
+                PoolDictionary[tag] = objectPool.OrderBy(a => Random.Range(0, objectPool.Count)).ToList();
+                powerUpCurrentCount = 0;
+            }
+            else
+            { powerUpCurrentCount++; }
+        }
+
+        obj.SetActive(true);
+
+        return obj;
+    }
+
+    void PoolSizeExpand(string tag, List<GameObject> objectPool)
+    {
+        foreach (var pool in Pools)
+        {
+            if (pool.tag == tag)
+            {
+                //GameObject ParentObject 
+                for (int i = 0; i < pool.prefabs.Count; i++)
+                {
+                    GameObject obj = Instantiate(pool.prefabs[i]);
+                    obj.SetActive(false);
+                    objectPool.Add(obj);
+                }
+                if (tag == "PowerUp") { powerUpMaxCount = objectPool.Count; }
+                return;
             }
         }
-
     }
 
-    private GameObject CreatePooledItem(GameObject prefab)
+    // 파워업 관련
+
+    public void PowerUPSizeChange(int SmallorBig)
     {
-        GameObject poolGo = Instantiate(prefab, this.transform);
-        return poolGo;
+        if (SmallorBig == 0)
+        {
+            if (smallSizeDuration <= 0 && bigSizeDuration > 0) { bigSizeDuration = 0; StopCoroutine("PowerUPSizeBig"); StartCoroutine("PowerUPSizeSmall"); }
+            else if (smallSizeDuration <= 0) { StartCoroutine("PowerUPSizeSmall"); }
+            else { smallSizeDuration += 10; }
+        }
+        else if (SmallorBig == 1)
+        {
+            if (bigSizeDuration <= 0 && smallSizeDuration > 0) { smallSizeDuration = 0; StopCoroutine("PowerUPSizeSmall"); StartCoroutine("PowerUPSizeBig"); }
+            else if (bigSizeDuration <= 0) { StartCoroutine("PowerUPSizeBig"); }
+            else { bigSizeDuration += 10; }
+        }
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="pool"></param>
-    private void OnReturnedToPool(GameObject pool)
+    IEnumerator PowerUPSizeSmall()
     {
-        pool.SetActive(false);
+        smallSizeDuration = 10;
+        powerUpSize = Vector2.one * 0.5f;
+        while (smallSizeDuration > 0)
+        {
+            yield return new WaitForSeconds(1f);
+            smallSizeDuration -= 1;
+        }
+        powerUpSize = Vector2.one;
     }
 
-    private void OnTakeFromPool(GameObject pool)
+    IEnumerator PowerUPSizeBig()
     {
-        pool.SetActive(true);
+        bigSizeDuration = 10;
+        powerUpSize = Vector2.one * 2;
+        while (bigSizeDuration > 0)
+        {
+            yield return new WaitForSeconds(1f);
+            bigSizeDuration -= 1;
+        }
+        powerUpSize = Vector2.one;
     }
-
-    private void OnDestroyPoolObject(GameObject pool)
-    {
-        Destroy(pool);
-    }
-
 }

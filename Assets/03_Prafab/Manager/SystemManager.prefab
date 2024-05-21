@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &71359435496621868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2759332980616811852}
+  - component: {fileID: 7023979986262028776}
+  m_Layer: 0
+  m_Name: ObjectPoolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2759332980616811852
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71359435496621868}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8481724568715678310}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7023979986262028776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71359435496621868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93e06d64966c6241ade3e99b2296415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pools:
+  - tag: Food
+    prefabs:
+    - {fileID: 1362409376399547142, guid: 3a4f5658420736a48b368d0307efabce, type: 3}
+    size: 10
+  - tag: AvoidFood
+    prefabs:
+    - {fileID: 8233819083057482765, guid: 1042b2e96497a394d8d85433182a3864, type: 3}
+    size: 10
+  - tag: PowerUp
+    prefabs:
+    - {fileID: 1362409376399547142, guid: e95ab1039aedc29439ac6637ed97e635, type: 3}
+    - {fileID: 1362409376399547142, guid: 15d9ef820d52a254e851eacd6315fe60, type: 3}
+    - {fileID: 1362409376399547142, guid: da598ae4caa54c248b2741775d88b209, type: 3}
+    size: 9
+  powerUpSize: {x: 1, y: 1}
 --- !u!1 &203772137560593279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1915,6 +1975,7 @@ Transform:
   m_Children:
   - {fileID: 4040339676572556235}
   - {fileID: 6000062227775249806}
+  - {fileID: 2759332980616811852}
   - {fileID: 3982839344094546846}
   - {fileID: 7131161175428974740}
   - {fileID: 8298730358862006037}
@@ -2507,13 +2568,11 @@ MonoBehaviour:
   foodSpawnSpeed: 3
   AvoidfoodSpawnSpeed: 6
   PowerUPSpawnSpeed: 10
-  food: {fileID: 1362409376399547142, guid: 3a4f5658420736a48b368d0307efabce, type: 3}
-  avoidFood: {fileID: 8233819083057482765, guid: 1042b2e96497a394d8d85433182a3864, type: 3}
-  powerUP: {fileID: 1362409376399547142, guid: e95ab1039aedc29439ac6637ed97e635, type: 3}
   MaxDifficult: 29
   currentDifficult: 0
   DifficultCap: 0.1
   speedScaling: 0
+  pool: {fileID: 7023979986262028776}
 --- !u!1001 &2098437482180789800
 PrefabInstance:
   m_ObjectHideFlags: 0
