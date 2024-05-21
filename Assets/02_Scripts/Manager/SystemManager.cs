@@ -24,6 +24,8 @@ public class SystemManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+
     }
     private void CallGamePlay()
     {
@@ -40,12 +42,14 @@ public class SystemManager : MonoBehaviour
     }
     public void LoadGamePlayScene()
     {
+        DataManager.instance.LoadData();
         SceneManager.LoadScene("GamePlayScene");
         CallGamePlay();
         Time.timeScale = 1.0f;
     }
     public void LoadGameStartScene()
     {
+        DataManager.instance.SaveData();
         SceneManager.LoadScene("GameStartScene");
         CallGameStart();
         Time.timeScale = 1.0f;
