@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip backgroundMusicClip;
     public AudioClip gameoverMusicClip;
+    public AudioClip newsocreSound;
     public AudioClip clickSound;
     public AudioClip eatSound;
     public AudioClip hitSound;
@@ -97,6 +98,16 @@ public class SoundManager : MonoBehaviour
         {
             StopMusicPlay();
             backgroundMusicSource.clip = gameoverMusicClip;
+            backgroundMusicSource.Play();
+        }
+    }
+
+    public void NewScore()
+    {
+        if (newsocreSound != null)
+        {
+            StopMusicPlay();
+            backgroundMusicSource.clip = newsocreSound;
             backgroundMusicSource.Play();
         }
     }
