@@ -13,6 +13,7 @@ public class PowerUp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            SoundManager.instance.PlayItemSound();
             Movement playerCoroutine = collision.gameObject.GetComponent<Movement>();
             playerCoroutine.StartSpeedUP();
         }

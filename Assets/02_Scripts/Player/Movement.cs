@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -11,9 +9,11 @@ public class Movement : MonoBehaviour
     private Vector3 movementDirection = Vector3.zero;
     private float speed;
 
-    // 파워업 관련
     private int speedUPDuration = 0;
     private float speedUP = 1.0f;
+
+    private Coroutine walkSoundCoroutine;
+    private bool isMoving;
 
     private void Awake()
     {
@@ -23,15 +23,31 @@ public class Movement : MonoBehaviour
         controller.CharacterSettingEvent += GetPlayerSpeed;
     }
 
-    private void FixedUpdate()
-    {
-        ApplyMovement(movementDirection);
-    }
-
     private void Start()
     {
         controller.OnMoveEvent += Move;
     }
+
+    private void FixedUpdate()
+    {
+        ApplyMovement(movementDirection);
+
+        if (movementDirection != Vector3.zero && !isMoving)
+        {
+            isMoving = true;
+            walkSoundCoroutine = StartCoroutine(PlayWalkSound());
+        }
+        else if (movementDirection == Vector3.zero && isMoving)
+        {
+            isMoving = false;
+            if (walkSoundCoroutine != null)
+            {
+                StopCoroutine(walkSoundCoroutine);
+                walkSoundCoroutine = null;
+            }
+        }
+    }
+
     private void Move(Vector2 direction)
     {
         movementDirection = direction;
@@ -50,8 +66,14 @@ public class Movement : MonoBehaviour
 
     public void StartSpeedUP()
     {
-        if (speedUPDuration <= 0) { StartCoroutine(SpeedUP()); }
-        else { speedUPDuration += 10; }
+        if (speedUPDuration <= 0)
+        {
+            StartCoroutine(SpeedUP());
+        }
+        else
+        {
+            speedUPDuration += 10;
+        }
     }
 
     IEnumerator SpeedUP()
@@ -64,5 +86,16 @@ public class Movement : MonoBehaviour
             speedUPDuration -= 1;
         }
         speedUP = 1f;
+    }
+
+    private IEnumerator PlayWalkSound()
+    {
+        while (true)
+        {
+            SoundManager.instance.PlayWalkSound();
+
+            float interval = Mathf.Max(0.41f, 1f / (speed * speedUP));
+            yield return new WaitForSeconds(interval);
+        }
     }
 }
