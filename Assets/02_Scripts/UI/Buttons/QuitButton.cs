@@ -6,6 +6,12 @@ public class QuitButton : MonoBehaviour
 {
     public void OnClickQuitButton()
     {
+        Debug.Log("게임 종료");
+        DataManager.instance.SaveData();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
         Application.Quit();
+#endif
     }
 }
