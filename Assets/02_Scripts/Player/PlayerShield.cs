@@ -13,6 +13,7 @@ public class PlayerShield : MonoBehaviour
     {
         SystemManager.instance.OnGamePlay += StopShield;
         SystemManager.instance.OnGameStart += RemoveEvent;
+        SystemManager.instance.OnGameOver += RemoveEvent;
     }
 
     private void RemoveEvent()
