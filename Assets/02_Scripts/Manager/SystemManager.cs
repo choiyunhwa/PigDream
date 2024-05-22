@@ -13,6 +13,8 @@ public class SystemManager : MonoBehaviour
     public event Action OnGameOver;
     public event Action OnGameStart;
 
+    public AsyncOperation asyncLoadPlayScene;
+
     void Awake()
     {
         if (instance == null)
@@ -43,7 +45,7 @@ public class SystemManager : MonoBehaviour
     public void LoadGamePlayScene()
     {
         DataManager.instance.LoadData();
-        SceneManager.LoadScene("GamePlayScene");
+        asyncLoadPlayScene = SceneManager.LoadSceneAsync("GamePlayScene");
         CallGamePlay();
         Time.timeScale = 1.0f;
     }

@@ -54,7 +54,7 @@ public class ObjectPoolManager : MonoBehaviour
 
     IEnumerator DelaySpawnCoroutine()
     {
-        yield return null;
+        yield return new WaitUntil(() => SystemManager.instance.asyncLoadPlayScene.isDone == true);
         InitGameObjectPool();
     }
 

@@ -20,6 +20,7 @@ public class PlayerShield : MonoBehaviour
     {
         SystemManager.instance.OnGamePlay -= StopShield;
         SystemManager.instance.OnGameStart -= RemoveEvent;
+        SystemManager.instance.OnGameOver -= RemoveEvent;
     }
 
     public void ActivateShield()
@@ -30,6 +31,7 @@ public class PlayerShield : MonoBehaviour
 
     public void StopShield()
     {
+        if (shield == null) { return; }
         StopCoroutine("ShieldCoroutine");
         shieldDuration = 0;
         shield.SetActive(false);
