@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4209852059417526498}
   - component: {fileID: 5975897728525145553}
   - component: {fileID: 6037673341532165409}
-  - component: {fileID: 6966293189111570406}
+  - component: {fileID: 3124418916962075782}
   m_Layer: 5
   m_Name: exitBtn
   m_TagString: Untagged
@@ -122,9 +122,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6966293189111570406}
-        m_TargetAssemblyTypeName: SettingButton, Assembly-CSharp
-        m_MethodName: SettingPannelOn
+      - m_Target: {fileID: 3124418916962075782}
+        m_TargetAssemblyTypeName: QuitButton, Assembly-CSharp
+        m_MethodName: OnClickQuitButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -134,7 +134,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6966293189111570406
+--- !u!114 &3124418916962075782
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,10 +143,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 307510191678158549}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4a6291a04bf1c4418e2df7d0d739fda, type: 3}
+  m_Script: {fileID: 11500000, guid: f6459c4fb268e77439a6c457b224c7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SettingPannel: {fileID: 0}
 --- !u!1 &422873944119309528
 GameObject:
   m_ObjectHideFlags: 0

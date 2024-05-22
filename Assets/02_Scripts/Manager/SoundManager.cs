@@ -108,4 +108,9 @@ public class SoundManager : MonoBehaviour
             backgroundMusicSource.Stop();
         }
     }
+
+    public void ControlBackgrounMusic(float value)
+    {
+        backgroundMusicSource.volume = value;
+    }
 }
