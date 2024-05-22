@@ -59,7 +59,7 @@ MonoBehaviour:
     - {fileID: 1362409376399547142, guid: 15d9ef820d52a254e851eacd6315fe60, type: 3}
     - {fileID: 1362409376399547142, guid: da598ae4caa54c248b2741775d88b209, type: 3}
     - {fileID: 1362409376399547142, guid: 4d518ffa3e49f96408cf06b1e13a1e94, type: 3}
-    size: 8
+    size: 4
   powerUpSize: {x: 1, y: 1}
 --- !u!1 &203772137560593279
 GameObject:

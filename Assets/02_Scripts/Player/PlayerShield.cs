@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -11,6 +12,13 @@ public class PlayerShield : MonoBehaviour
     void Start()
     {
         SystemManager.instance.OnGamePlay += StopShield;
+        SystemManager.instance.OnGameStart += RemoveEvent;
+    }
+
+    private void RemoveEvent()
+    {
+        SystemManager.instance.OnGamePlay -= StopShield;
+        SystemManager.instance.OnGameStart -= RemoveEvent;
     }
 
     public void ActivateShield()
