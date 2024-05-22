@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
     }
 
     void Start()
@@ -41,8 +42,8 @@ public class GameManager : MonoBehaviour
         SystemManager.instance.OnGameOver += GameEnd;
         SystemManager.instance.OnGameStart += GameMenu;
 
+        DataManager.instance.LoadData();
         playerInfors = Resources.LoadAll<PlayerSO>("Player");
-        
     }
 
     public void ScoreEarn(int scorePoint)
