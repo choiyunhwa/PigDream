@@ -35,6 +35,7 @@ public class SpawnManager : MonoBehaviour
 
     private void StartAllCoroutine()
     {
+        StopAllCoroutine();
         // 초기 세팅
         speedScaling = 0;
         currentDifficult = 0;
