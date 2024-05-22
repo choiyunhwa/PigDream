@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject GameStartButtons;
     [SerializeField] private GameObject GamePlayButtons;
     [SerializeField] private GameObject GameEndPannel;
+    [SerializeField] private GameObject NewScore;
 
     void Start()
     {
@@ -43,5 +44,10 @@ public class UIManager : MonoBehaviour
     private void GameEndPannelAvtive()
     {
         GameEndPannel.SetActive(true);
+    }
+
+    private void NewScoreAvtive()
+    {
+        NewScore.SetActive(true);
     }
 }

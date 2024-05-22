@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject gameOverPannel;
     [SerializeField] private Text scoreTxt;
+    [SerializeField] private GameObject NewScore;
     [SerializeField] private TextMeshProUGUI currentScoreTxt;
     [SerializeField] private TextMeshProUGUI bestScoreTxt;
 
@@ -70,7 +71,8 @@ public class GameManager : MonoBehaviour
     {
         if(currentScore > bestScore)
         {
-            
+            SoundManager.instance.NewScore();
+            NewScore.SetActive(true);
             return bestScore = currentScore;
         }
 
