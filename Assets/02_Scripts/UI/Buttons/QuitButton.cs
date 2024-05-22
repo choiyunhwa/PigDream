@@ -6,6 +6,7 @@ public class QuitButton : MonoBehaviour
 {
     public void OnClickQuitButton()
     {
+        SoundManager.instance.PlayClickSound();
         Debug.Log("게임 종료");
         DataManager.instance.SaveData();
 #if UNITY_EDITOR

@@ -52,24 +52,8 @@ public class DataManager : MonoBehaviour
         if(File.Exists(filePath)) 
         {            
             string FromJsonData = File.ReadAllText(filePath);
-            if(string.IsNullOrEmpty(FromJsonData))
-            {
-                Debug.LogWarning("파일은 있지만 내용이 없습니다.");
-                gameData = new GameData();
-            }
-            else
-            {
-                try
-                {
-                    gameData = JsonUtility.FromJson<GameData>(FromJsonData);
-                    Debug.Log("불러오기 성공");
-                }
-                catch(Exception e)
-                {
-                    Debug.LogError("Json 파싱 오류" + e.Message);
-                    gameData = new GameData();
-                }
-            }            
+            gameData = JsonUtility.FromJson<GameData>(FromJsonData);
+            Debug.Log("불러오기 성공");
         }
         else
         {

@@ -117,7 +117,7 @@ public class ObjectPoolManager : MonoBehaviour
         {
             if (powerUpCurrentCount == powerUpMaxCount)
             {
-                PoolDictionary[tag] = PoolDictionary[tag] = PoolDictionary[tag].OrderBy(a => Random.Range(0, PoolDictionary[tag].Count)).ToList();
+                PoolDictionary[tag] = objectPool.OrderBy(a => Random.Range(0, objectPool.Count)).ToList();
                 powerUpCurrentCount = 0;
             }
             else
