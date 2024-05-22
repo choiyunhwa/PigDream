@@ -5,6 +5,7 @@ using UnityEngine;
 public class Food : MonoBehaviour
 {
     [SerializeField] private LayerMask playerCollisionLayer;
+    [SerializeField] private LayerMask shieldCollisionLayer;
 
     private int scorePoint = 100;   // 임시 점수 설정
 
@@ -14,6 +15,8 @@ public class Food : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if(IsLayerMatched(shieldCollisionLayer, other.gameObject.layer)) { return; }
+
         if (IsLayerMatched(playerCollisionLayer.value, other.gameObject.layer))
         { 
             GameManager.instance.ScoreEarn(scorePoint);

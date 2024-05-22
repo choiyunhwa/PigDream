@@ -74,7 +74,7 @@ public class ObjectPoolManager : MonoBehaviour
 
                 objectPool.Add(obj);
             }
-            if (pool.tag == "PowerUp") { powerUpMaxCount = objectPool.Count; }
+            if (pool.tag == "PowerUp") { powerUpMaxCount = objectPool.Count; PoolDictionary[tag] = objectPool.OrderBy(a => Random.Range(0, objectPool.Count)).ToList(); }
             PoolDictionary.Add(pool.tag, objectPool);
         }
     }

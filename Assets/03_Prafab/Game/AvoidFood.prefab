@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7806980293998175905}
   - component: {fileID: 2351205435577333135}
   - component: {fileID: 4481153439023378758}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AvoidFood
   m_TagString: Untagged
   m_Icon: {fileID: 0}

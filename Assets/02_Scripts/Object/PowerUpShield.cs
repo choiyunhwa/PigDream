@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+Ôªøusing UnityEngine;
 
-public class PowerUp : MonoBehaviour
+public class PowerUpShield : MonoBehaviour
 {
     [SerializeField] private LayerMask playerCollisionLayer;
     [SerializeField] private LayerMask shieldCollisionLayer;
 
     void Update()
     {
-        transform.position += Vector3.down * Time.deltaTime * 2.5f * SpawnManager.instance.speedScaling; // º”µµ Ω∫ƒ…¿œ∏µ
+        transform.position += Vector3.down * Time.deltaTime * 2.5f * SpawnManager.instance.speedScaling; // ÏÜçÎèÑ Ïä§ÏºÄÏùºÎßÅ
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -19,8 +17,8 @@ public class PowerUp : MonoBehaviour
         if (IsLayerMatched(playerCollisionLayer.value, other.gameObject.layer))
         {
             SoundManager.instance.PlayItemSound();
-            Movement playerCoroutine = other.gameObject.GetComponent<Movement>();
-            playerCoroutine.StartSpeedUP();
+            PlayerShield playerCoroutine = other.gameObject.GetComponent<PlayerShield>();
+            playerCoroutine.ActivateShield();
         }
         gameObject.SetActive(false);
     }

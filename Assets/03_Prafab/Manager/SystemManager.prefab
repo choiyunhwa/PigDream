@@ -58,7 +58,8 @@ MonoBehaviour:
     - {fileID: 1362409376399547142, guid: e95ab1039aedc29439ac6637ed97e635, type: 3}
     - {fileID: 1362409376399547142, guid: 15d9ef820d52a254e851eacd6315fe60, type: 3}
     - {fileID: 1362409376399547142, guid: da598ae4caa54c248b2741775d88b209, type: 3}
-    size: 9
+    - {fileID: 1362409376399547142, guid: 4d518ffa3e49f96408cf06b1e13a1e94, type: 3}
+    size: 8
   powerUpSize: {x: 1, y: 1}
 --- !u!1 &203772137560593279
 GameObject:
@@ -2674,7 +2675,6 @@ MonoBehaviour:
   currentDifficult: 0
   DifficultCap: 0.1
   speedScaling: 0
-  pool: {fileID: 7023979986262028776}
 --- !u!1001 &2098437482180789800
 PrefabInstance:
   m_ObjectHideFlags: 0
