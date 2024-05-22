@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7521592969773129937}
   - component: {fileID: 7806980293998175905}
   - component: {fileID: 2351205435577333135}
+  - component: {fileID: 7871530221019078330}
   - component: {fileID: 4481153439023378758}
   m_Layer: 6
   m_Name: AvoidFood
@@ -123,6 +124,18 @@ MonoBehaviour:
   playerCollisionLayer:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &7871530221019078330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8233819083057482765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5362b692cacc444ca280b0cce904435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!58 &4481153439023378758
 CircleCollider2D:
   m_ObjectHideFlags: 0

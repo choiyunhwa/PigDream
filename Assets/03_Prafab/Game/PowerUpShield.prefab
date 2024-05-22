@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5313287200932124756}
   - component: {fileID: 4029148407237529091}
   - component: {fileID: 1053056667544031119}
+  - component: {fileID: 1598132029723409779}
   - component: {fileID: 3081136025100746478}
   m_Layer: 0
   m_Name: PowerUpShield
@@ -127,6 +128,19 @@ MonoBehaviour:
   shieldCollisionLayer:
     serializedVersion: 2
     m_Bits: 128
+  shieldSprite: {fileID: 8005268538638462049}
+--- !u!114 &1598132029723409779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362409376399547142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5362b692cacc444ca280b0cce904435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!58 &3081136025100746478
 CircleCollider2D:
   m_ObjectHideFlags: 0

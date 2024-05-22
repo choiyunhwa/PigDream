@@ -7,6 +7,12 @@ public class Food : MonoBehaviour
     [SerializeField] private LayerMask playerCollisionLayer;
     [SerializeField] private LayerMask shieldCollisionLayer;
 
+    private FoodAnimator animator;
+    private void Awake()
+    {
+        animator = GetComponent<FoodAnimator>();
+    }
+
     private int scorePoint = 100;   // 임시 점수 설정
 
     void Update()
@@ -21,11 +27,19 @@ public class Food : MonoBehaviour
         { 
             GameManager.instance.ScoreEarn(scorePoint);
             SoundManager.instance.PlayClickSound();
+            animator.IsHit(true);
         }
-        gameObject.SetActive(false);
+        Invoke("Disabled", 3f);
+        
     }
     private bool IsLayerMatched(int layerMask, int objectLayer)
     {
         return layerMask == (layerMask | (1 << objectLayer));
+    }
+
+    private void Disabled()
+    {
+        gameObject.SetActive(false);
+        animator.IsHit(false);
     }
 }
