@@ -31,6 +31,7 @@ public class PlayerShield : MonoBehaviour
     public void StopShield()
     {
         StopCoroutine("ShieldCoroutine");
+        SoundManager.instance.PlayHitSound();
         shieldDuration = 0;
         shield.SetActive(false);
     }
