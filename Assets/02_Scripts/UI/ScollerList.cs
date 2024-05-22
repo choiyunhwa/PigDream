@@ -35,11 +35,11 @@ public class ScollerList : MonoBehaviour
             Image image = obj.AddComponent<Image>();
             image.sprite = player.playerSprite;
         }
+        pos = new float[content.transform.childCount];
     }
 
     private void Update()
     {
-        pos = new float[content.transform.childCount];
         float distance = 1f / (pos.Length - 1);
 
         for (int i = 0; i < pos.Length; i++)
@@ -62,34 +62,71 @@ public class ScollerList : MonoBehaviour
             }
         }
 
-        int newIndes = -2;
+        int newIndex = -1;
+
+        float closestDistance = float.MaxValue;
 
         for (int i = 0; i < pos.Length; i++)
         {
-            float scale = Mathf.Lerp(0.8f, 1f, Mathf.Clamp01(1f - Mathf.Abs(scrollPos - pos[i]) / (distance / 2)));
-            content.transform.GetChild(i).localScale = new Vector2(scale, scale);
-
-            if (Mathf.Approximately(scale,1f))
+            float currentDistance = Mathf.Abs(scrollPos - pos[i]);
+            if (currentDistance < closestDistance)
             {
-                newIndes = i;                
+                //Debug.Log("위치확인!");
+                closestDistance = currentDistance;
+                newIndex = i;
             }
-            
-        }   
-        
-        if(currentIndex != newIndes)
-        {
-            currentIndex = newIndes;
+        }
 
-            if (currentIndex >= 0 && currentIndex < playerInfor.Length) 
-            { 
+        if (currentIndex != newIndex)
+        {
+            currentIndex = newIndex;
+
+            if (currentIndex >= 0 && currentIndex < playerInfor.Length)
+            {
+                //Debug.Log("캐릭터 업데이트 확인!");
                 choiceImg.sprite = playerInfor[currentIndex].playerSprite;
                 choiceName.text = playerInfor[currentIndex].playerName;
                 choiceSpeed.text = playerInfor[currentIndex].speed.ToString();
 
                 GameManager.instance.CharacterSetting(playerInfor[currentIndex]);
-            
             }
         }
+
+        for (int i = 0; i < pos.Length; i++)
+        {
+            //Debug.Log("캐릭터  크기 변경!");
+            float scale = Mathf.Lerp(0.8f, 1f, Mathf.Clamp01(1f - Mathf.Abs(scrollPos - pos[i]) / (distance / 2)));
+            content.transform.GetChild(i).localScale = new Vector2(scale, scale);
+        }
+
+
+
+        //for (int i = 0; i < pos.Length; i++)
+        //{
+        //    float scale = Mathf.Lerp(0.8f, 1f, Mathf.Clamp01(1f - Mathf.Abs(scrollPos - pos[i]) / (distance / 2)));
+        //    content.transform.GetChild(i).localScale = new Vector2(scale, scale);
+
+        //    if (Mathf.Approximately(scale,1f))
+        //    {
+        //        newIndes = i;                
+        //    }
+
+        //}   
+
+        //if(currentIndex != newIndes)
+        //{
+        //    currentIndex = newIndes;
+
+        //    if (currentIndex >= 0 && currentIndex < playerInfor.Length) 
+        //    { 
+        //        choiceImg.sprite = playerInfor[currentIndex].playerSprite;
+        //        choiceName.text = playerInfor[currentIndex].playerName;
+        //        choiceSpeed.text = playerInfor[currentIndex].speed.ToString();
+
+        //        GameManager.instance.CharacterSetting(playerInfor[currentIndex]);
+
+        //    }
+        //}
     }
 }
 

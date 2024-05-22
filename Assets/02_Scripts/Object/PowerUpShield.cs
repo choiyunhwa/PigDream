@@ -6,7 +6,6 @@ public class PowerUpShield : MonoBehaviour
     [SerializeField] private LayerMask shieldCollisionLayer;
 
     [SerializeField] private GameObject shieldSprite;
-    [SerializeField] private GameObject PowerUPshield;
     private FoodAnimator animator;
     private void Awake()
     {
@@ -23,9 +22,8 @@ public class PowerUpShield : MonoBehaviour
 
         if (IsLayerMatched(playerCollisionLayer.value, other.gameObject.layer))
         {
-            animator.IsHit(true);
             SoundManager.instance.PlayItemSound();
-            PowerUPshield.SetActive(true);
+            animator.IsHit(true);
             PlayerShield playerCoroutine = other.gameObject.GetComponent<PlayerShield>();
             playerCoroutine.ActivateShield();
         }

@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
         OnMoveEvent?.Invoke(dir);
     }
 
-    private void CallDieEvent()
+    public void CallDieEvent()
     {
         OnDieEvent?.Invoke();
     }
