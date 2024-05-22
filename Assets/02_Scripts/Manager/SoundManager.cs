@@ -1,6 +1,3 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -9,33 +6,46 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource backgroundMusicSource;
     public AudioSource soundEffectSource;
+    public AudioSource walksoundEffectSource;
 
     public AudioClip backgroundMusicClip;
     public AudioClip gameoverMusicClip;
     public AudioClip clickSound;
+    public AudioClip eatSound;
+    public AudioClip hitSound;
+    public AudioClip itemSound;
+    public AudioClip stepSound;
 
-    private void Awake() //함수 가장빠른 실행 
+    private void Awake()
     {
-
-        if (instance == null) //만약 인스턴스가 비어있다면 
+        if (instance == null)
         {
-            instance = this; //인스턴스를 이것으로(class오디오매니저) 
-            // SceneManager 밑에 넣어서 LoadScene 파괴 방지
+            instance = this;
+            DontDestroyOnLoad(gameObject); // 씬이 바뀌어도 오브젝트가 파괴되지 않도록 합니다.
         }
-        else //그외의 경우 (이미 인스턴스에 있어 재생중일 경우) 
+        else
         {
-            Destroy(gameObject); //오디오 오브젝트를 파괴함 
+            Destroy(gameObject);
         }
     }
+
     void Start()
     {
-        backgroundMusicSource.clip = this.backgroundMusicClip;
-        backgroundMusicSource.Play();
-
-        // soundEffectSource 초기화
+        if (gameoverMusicClip != null)
+        {
+            backgroundMusicSource.clip = backgroundMusicClip;
+            backgroundMusicSource.Play();
+        }
     }
-    // 클릭 효과음 재생 메서드 
-    public void PlayClickSound() // 함수 “PlayClickSound” 
+    
+    public void Music()
+    {
+        StopMusicPlay();
+        backgroundMusicSource.clip = backgroundMusicClip;
+        backgroundMusicSource.Play();
+    }
+
+    public void PlayClickSound()
     {
         if (clickSound != null)
         {
@@ -43,22 +53,59 @@ public class SoundManager : MonoBehaviour
             soundEffectSource.Play();
         }
     }
-    public void GameOver() 
+
+    public void PlayEatSound()
     {
-        if (gameoverMusicClip != null)
+        if (clickSound != null)
         {
-            soundEffectSource.clip = gameoverMusicClip;
-            StopMusicPlay();
+            soundEffectSource.clip = eatSound;
             soundEffectSource.Play();
         }
     }
+
+    public void PlayHitSound()
+    {
+        if (clickSound != null)
+        {
+            soundEffectSource.clip = hitSound;
+            soundEffectSource.Play();
+        }
+    }
+
+    public void PlayItemSound()
+    {
+        if (clickSound != null)
+        {
+            soundEffectSource.clip = itemSound;
+            soundEffectSource.Play();
+        }
+    }
+
+
+    public void PlayWalkSound()
+    {
+        if (stepSound != null)
+        {
+            walksoundEffectSource.clip = stepSound;
+            walksoundEffectSource.Play();
+        }
+    }
+
+    public void GameOver()
+    {
+        if (gameoverMusicClip != null)
+        {
+            StopMusicPlay();
+            backgroundMusicSource.clip = gameoverMusicClip;
+            backgroundMusicSource.Play();
+        }
+    }
+
     public void StopMusicPlay()
     {
-        if (backgroundMusicClip != null)
+        if (backgroundMusicSource != null)
         {
             backgroundMusicSource.Stop();
         }
     }
-
 }
-

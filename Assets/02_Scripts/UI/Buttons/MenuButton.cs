@@ -9,6 +9,12 @@ public class MenuButton : MonoBehaviour
     public void GotoGameStart()
     {
         SoundManager.instance.PlayClickSound();
+        SoundManager.instance.PlayClickSound();
+        if (SoundManager.instance.gameoverMusicClip != null)
+        {
+            SoundManager.instance.backgroundMusicSource.clip = SoundManager.instance.backgroundMusicClip;
+            SoundManager.instance.backgroundMusicSource.Play();
+        }
         SystemManager.instance.LoadGameStartScene();
         GameEndPannel.SetActive(false);
     }

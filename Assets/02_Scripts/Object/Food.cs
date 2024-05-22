@@ -20,7 +20,10 @@ public class Food : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (IsLayerMatched(playerCollisionLayer.value, other.gameObject.layer))
-        { GameManager.instance.ScoreEarn(scorePoint); }
+        { 
+            GameManager.instance.ScoreEarn(scorePoint);
+            SoundManager.instance.PlayClickSound();
+        }
         gameObject.SetActive(false);
     }
     private bool IsLayerMatched(int layerMask, int objectLayer)
