@@ -123,6 +123,9 @@ MonoBehaviour:
   playerCollisionLayer:
     serializedVersion: 2
     m_Bits: 8
+  shieldCollisionLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!58 &3081136025100746478
 CircleCollider2D:
   m_ObjectHideFlags: 0
