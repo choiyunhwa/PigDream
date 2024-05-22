@@ -78,6 +78,8 @@ public class GameManager : MonoBehaviour
 
     private void GameEnd()
     {
+        SoundManager.instance.PlayHitSound();
+        SoundManager.instance.GameOver();
         currentScoreTxt.text = currentScore.ToString();
         DataManager.instance.GameData.bestscore = CheckBestScore();
         bestScoreTxt.text = CheckBestScore().ToString();
