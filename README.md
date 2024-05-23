@@ -11,6 +11,45 @@
 
 바쁜 일상 속에서 잠시 벗어나 재미있고 유쾌한 게임 플레이를 통해 즐거운 시간은 만끽해 보세요!
 
+
+</div>
+</br>
+<h2 align = "center"><b>폴더 구조 </b></h2>
+</br>
+
+### Assets
+#### - 01_Scenes
+#### - 02_Scripts
+ - Manager
+ - Object
+ - Player
+ - ScriptableObject
+ - UI
+#### - 03_Prefab
+ - Game
+ - Manager
+ - Object
+ - Player
+#### - 04_Sprites
+ - Effect
+ - Map
+ - Object
+ - Player
+ - UI
+#### - 05_Animation
+- Character
+- Food
+- Shield
+#### - 07_Input
+#### - 08_Font
+#### - 09_TileMap 
+#### - 10_Asset
+ - Audio
+ - TextMesh Pro
+#### - 11_Shader
+#### - Resources
+ - Player
+
 </div>
 </br>
 <h2 align = "center"><b>🕹 프로젝트 소개 </b></h2>
