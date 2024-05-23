@@ -1,7 +1,7 @@
 <h1 align = "center"><b>🐷Pig Dream🐷</b></h1>
 <div align = "center">
  
-<img src = "https://github.com/choiyunhwa/PigDream/blob/main/GitImg/GamePlay.png"/>
+<img src = "https://github.com/choiyunhwa/PigDream/assets/101029607/57546548-d654-4112-942b-503c0cf865ae"/>
 
 </div>
 </br>
@@ -14,42 +14,9 @@
 
 </div>
 </br>
-<h2 align = "center"><b>폴더 구조 </b></h2>
+<h2 align = "center"><b>📁 폴더 구조 </b></h2>
 </br>
-
-### Assets
-#### - 01_Scenes
-#### - 02_Scripts
- - Manager
- - Object
- - Player
- - ScriptableObject
- - UI
-#### - 03_Prefab
- - Game
- - Manager
- - Object
- - Player
-#### - 04_Sprites
- - Effect
- - Map
- - Object
- - Player
- - UI
-#### - 05_Animation
-- Character
-- Food
-- Shield
-#### - 07_Input
-#### - 08_Font
-#### - 09_TileMap 
-#### - 10_Asset
- - Audio
- - TextMesh Pro
-#### - 11_Shader
-#### - Resources
- - Player
-
+<img src="https://github.com/choiyunhwa/PigDream/blob/main/GitImg/Tree.png"/>
 </div>
 </br>
 <h2 align = "center"><b>🕹 프로젝트 소개 </b></h2>
@@ -98,6 +65,12 @@
 |:------:|
 |![Init](https://github.com/choiyunhwa/PigDream/blob/main/GitImg/GamePlayEx.png)|
 
+<h3>🍎 아이템을 사용하여 높을 점수를 획득해보아요! </h3>
+
+|아이템 |
+|:------:|
+|![Init](https://github.com/choiyunhwa/PigDream/blob/main/GitImg/Items.png)|
+
 <h3>🍎 게임의 사운드를 조절할 수 있어요!</h3>
 
 |게임 설정|
@@ -117,18 +90,16 @@
 |:------:|:------:|:------:|
 |![Init](https://github.com/choiyunhwa/PigDream/blob/main/GitImg/GamePlay.png)|![Init](https://github.com/choiyunhwa/PigDream/blob/main/GitImg/GamePause.png)|![Init](https://github.com/choiyunhwa/PigDream/blob/main/GitImg/GameEnding.png)|
 
-<h3>🍎 아이템을 사용하여 높을 점수를 획득해보아요! </h3>
-
-|아이템 |
-|:------:|
-|![Init]()|
 
 
-와이어프레임
+
+
+
+
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white) 
+[와이어프레임](https://www.figma.com/design/HPwmOsiUzM6RMs0ElgH1JU/%5Co%2F%ED%8C%80?t=TvbKcOcdtegJTS95-1)
+
 ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
-
-UML
-![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
-
+[UML](https://www.figma.com/board/R8ZdGnZ1gDoS1pzm36N6GH/%EB%8F%BC%EC%A7%80%EC%9D%98-%EA%BF%88---UML?node-id=0%3A1&t=TvbKcOcdtegJTS95-1)
 
 </div>
